@@ -1,0 +1,21 @@
+
+
+<div *ngIf='!autenticato'>{{errorMsg}}</div>
+<div>
+  <label for="userId">User Id:</label>
+  <input type="text" [(ngModel)]="userid" id="userId" placeholder="Nome Utente" />
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" [(ngModel)]="password" placeholder="Password" />
+
+  <button (click)="gestAut()">Connetti</button>
+</div>
+
+
+
+<!--<br />
+<br />
+
+<p>
+  Il tuo Userid e {{userid}} e la tua password è {{password}}
+</p>-->

@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "alphashop"
+  "defaultProject": "alphashop",
+  "cli": {
+    "analytics": "878b4c6e-b838-49b9-9a8b-ddaf0ac058ab"
+  }
 }
