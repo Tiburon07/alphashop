@@ -1,21 +1,24 @@
+<app-jumbotron [Titolo]="'Autenticazione'" [SottoTitolo]="'Inserisci la Userid e la Password'"></app-jumbotron>
 
-
-<div *ngIf='!autenticato'>{{errorMsg}}</div>
-<div>
-  <label for="userId">User Id:</label>
-  <input type="text" [(ngModel)]="userid" id="userId" placeholder="Nome Utente" />
-
-  <label for="password">Password:</label>
-  <input type="password" id="password" [(ngModel)]="password" placeholder="Password" />
-
-  <button (click)="gestAut()">Connetti</button>
+<div class="container login-container">
+  <div class="row">
+    <div class="col-md-6 login-form">
+      <h3>Login Form </h3>
+      <div class="form-group">
+        <input type="text" class="form-control" id="userId" placeholder="Nome Utente" [(ngModel)]="userid">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="password">
+      </div>
+      <div class="form-group">
+        <button (click)=gestAut() class="btnSubmit">Connetti</button>
+      </div>
+      <div class="form-group">
+        <a href="#" class="ForgetPwd">Password Dimenticata?</a>
+      </div>
+      <div *ngIf='!autenticato' id="login_msg_container" class="alert alert-danger" role="alert">
+        {{errorMsg}}
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
-<!--<br />
-<br />
-
-<p>
-  Il tuo Userid e {{userid}} e la tua password è {{password}}
-</p>-->
