@@ -8,10 +8,10 @@ import { AuthappService } from '../services/authapp.service';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor(public BaseAuth: AuthappService) { }
+  constructor(private BasicAuth: AuthappService) { }
 
   ngOnInit(): void {
-    this.BaseAuth.clearAll();
+      this.BasicAuth.clearAll();
   }
 
 }

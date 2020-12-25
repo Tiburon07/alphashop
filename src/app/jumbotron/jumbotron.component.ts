@@ -12,5 +12,8 @@ export class JumbotronComponent implements OnInit {
   @Input() Show: boolean = true
 
   constructor() { }
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+  }
+
 }

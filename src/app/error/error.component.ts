@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorComponent implements OnInit {
 
-  errorMsg = 'Sorry Johnny! you are on your own'
+  errorMsg = 'Spiacente la pagina ricercata non è esistente!'
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }
