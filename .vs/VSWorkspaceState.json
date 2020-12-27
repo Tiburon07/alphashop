@@ -6,10 +6,11 @@
     "\\src\\app\\articoli",
     "\\src\\app\\jumbotron",
     "\\src\\app\\login",
+    "\\src\\app\\navbar",
     "\\src\\app\\services",
     "\\src\\app\\services\\data",
     "\\src\\app\\welcome"
   ],
-  "SelectedNode": "\\src\\app\\articoli\\articoli.component.html",
+  "SelectedNode": "\\src\\app\\articoli\\articoli.component.ts",
   "PreviewInSolutionExplorer": false
 }

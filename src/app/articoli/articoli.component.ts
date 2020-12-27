@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticoliDataService } from '../services/data/articoli-data.service';
 import { ActivatedRoute } from '@angular/router';
+import { error } from 'protractor';
 
 export class Articoli {
 
@@ -31,6 +32,7 @@ export class ArticoliComponent implements OnInit {
   righe = 10;
   articoli: Articoli[] = [];
   filter: string = '';
+  articolo: Articoli | undefined;
 
   constructor(private route: ActivatedRoute, private articoliService: ArticoliDataService) { }
 
@@ -41,16 +43,60 @@ export class ArticoliComponent implements OnInit {
       this.getArticoli(this.filter);
   }
 
+  refresh() {
+    this.getArticoli(this.filter);
+  }
+
   getArticoli(filter: string) {
-    this.articoliService.getArticoli(filter).subscribe(
+    console.log('Ricerchiamo articoli per codice articolo ' + filter);
+    this.articoliService.getArticoliByCodArt(filter).subscribe(
       response => {
-        console.log('Ricerchiamo articoli con filtro ' + filter);
 
-        this.articoli = response;
-        console.log(this.articoli);
+        this.articoli = [];
 
+        this.articolo = response;
+        console.log(this.articolo);
+
+        this.articoli.push(this.articolo);
         this.NumArt = this.articoli.length;
         console.log(this.NumArt);
+      },
+      error => {
+        console.log(error);
+        console.log(error.error.messaggio);
+
+        console.log('Ricerchiamo per barcode con il filtro ' + filter);
+        this.articoliService.getArticoliByEan(filter).subscribe(
+          response => {
+
+            this.articolo = response;
+            console.log(this.articolo);
+
+            this.articoli.push(this.articolo);
+            this.NumArt = this.articoli.length;
+            console.log(this.NumArt);
+          },
+          error => {
+            console.log(error);
+            console.log(error.error.messaggio);
+
+            console.log('Ricerchiamo per descrizione con il filtro ' + filter);
+            this.articoliService.getArticoliByDescr(filter).subscribe(
+              response => {
+
+                this.articoli = response;
+                console.log(this.articoli);
+
+                this.NumArt = this.articoli.length;
+                console.log(this.NumArt);
+              },
+              error => {
+                console.log(error);
+                console.log(error.error.messaggio);
+              }
+            )
+          }
+        )
       }
     )
   }

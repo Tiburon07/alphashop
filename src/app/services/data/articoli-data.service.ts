@@ -7,11 +7,20 @@ import { Articoli } from '../../articoli/articoli.component';
 })
 export class ArticoliDataService {
 
+  server = "localhost"
+  port = "5051"
+
   constructor(private httpClient: HttpClient) { }
 
-  getArticoli(descrizione: string) {
-    return this.httpClient.get<Articoli[]>(`http://localhost:5051/api/articoli/cerca/descrizione/${descrizione}`);
+  getArticoliByDescr(descrizione: string) {
+    return this.httpClient.get<Articoli[]>(`http://${this.server}:${this.port}/api/articoli/cerca/descrizione/${descrizione}`);
   }
 
+  getArticoliByCodArt(codArt: string) {
+    return this.httpClient.get<Articoli>(`http://${this.server}:${this.port}/api/articoli/cerca/codice/${codArt}`);
+  }
 
+  getArticoliByEan(barcode: string) {
+    return this.httpClient.get<Articoli>(`http://${this.server}:${this.port}/api/articoli/cerca/ean/${barcode}`);
+  }
 }
