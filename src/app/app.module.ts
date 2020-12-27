@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { AppComponent } from './app.component';
 import { ErrorComponent } from './error/error.component';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -14,6 +16,13 @@ import { JumbotronComponent } from './jumbotron/jumbotron.component';
 import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    NgxPaginationModule
+  ],
   declarations: [
     AppComponent,
     ErrorComponent,
@@ -24,11 +33,6 @@ import { LogoutComponent } from './logout/logout.component';
     FooterComponent,
     JumbotronComponent,
     LogoutComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

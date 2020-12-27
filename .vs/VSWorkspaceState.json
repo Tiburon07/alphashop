@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\articoli",
+    "\\src\\app\\jumbotron",
+    "\\src\\app\\login",
+    "\\src\\app\\services",
+    "\\src\\app\\services\\data",
+    "\\src\\app\\welcome"
+  ],
+  "SelectedNode": "\\src\\app\\articoli\\articoli.component.html",
+  "PreviewInSolutionExplorer": false
+}
